@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import CartIcon from './CartIcon';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Millets Food', href: '#millets-food' },
-    { name: 'Contact', href: '#contact' },
-    { name: 'About us', href: '#about' },
-    { name: 'Why EatKrishna?', href: '#why-laddupallem' },
+    { name: 'Home', to: '/' },
+    { name: 'Millets Food', to: '/millets-food' },
+    { name: 'Contact', to: '/contact' },
+    { name: 'About us', to: '/about' },
+    { name: 'Why EatKrishna?', to: '/why-eatkrishna' },
   ];
 
   return (
@@ -30,25 +32,19 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.to}
                 className="text-gray-700 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Cart and Mobile menu */}
           <div className="flex items-center space-x-4">
-            <button className="relative p-2 text-gray-700 hover:text-orange-600 transition-colors duration-200">
-              <ShoppingCart className="h-6 w-6" />
-              <span className="absolute -top-1 -right-1 bg-orange-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                0
-              </span>
-            </button>
-            
+            <CartIcon />
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -65,14 +61,14 @@ const Header: React.FC = () => {
           <div className="md:hidden pb-4">
             <nav className="flex flex-col space-y-2">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.to}
                   className="text-gray-700 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

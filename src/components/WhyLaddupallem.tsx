@@ -56,21 +56,19 @@ const WhyLaddupallem: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-12 mb-16">
           {reasons.map((reason, index) => (
-            <Card key={index} className="p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-start space-x-4">
-                <div className={`flex-shrink-0 p-4 rounded-lg ${reason.bgColor}`}>
-                  <reason.icon className={`h-8 w-8 ${reason.color}`} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {reason.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {reason.description}
-                  </p>
-                </div>
+            <Card key={index} className="p-12 rounded-2xl shadow-2xl hover:shadow-2xl transition-shadow duration-300 min-h-[220px] flex items-start">
+              <div className={`flex-shrink-0 p-6 rounded-lg ${reason.bgColor} ${reason.color} mr-8`}>
+                <reason.icon className="h-12 w-12" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                  {reason.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  {reason.description}
+                </p>
               </div>
             </Card>
           ))}
@@ -78,15 +76,15 @@ const WhyLaddupallem: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <Card className="p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <Card className="p-12 rounded-2xl shadow-2xl">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">
                 Health Benefits of Our Millet Products
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-700">{benefit}</span>
+                    <div className="w-3 h-3 bg-orange-600 rounded-full flex-shrink-0"></div>
+                    <span className="text-gray-700 text-lg">{benefit}</span>
                   </li>
                 ))}
               </ul>
@@ -94,26 +92,26 @@ const WhyLaddupallem: React.FC = () => {
           </div>
 
           <div>
-            <Card className="p-8 bg-gradient-to-br from-orange-500 to-yellow-500 text-white">
-              <h3 className="text-2xl font-bold mb-4">
+            <Card className="p-12 bg-gradient-to-br from-orange-500 to-yellow-500 text-white rounded-2xl shadow-2xl">
+              <h3 className="text-2xl font-bold mb-6">
                 Join Our Happy Customers
               </h3>
-              <p className="text-lg mb-6 opacity-90">
+              <p className="text-lg mb-8 opacity-90">
                 Experience the authentic taste of traditional millet foods and 
                 join thousands of satisfied customers who have made EatKrishna
                 their trusted choice for healthy snacking.
               </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold">4.8★</div>
-                  <div className="text-sm opacity-90">Customer Rating</div>
+                  <div className="text-4xl font-bold">4.8★</div>
+                  <div className="text-lg opacity-90">Customer Rating</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold">98%</div>
-                  <div className="text-sm opacity-90">Repeat Customers</div>
+                  <div className="text-4xl font-bold">98%</div>
+                  <div className="text-lg opacity-90">Repeat Customers</div>
                 </div>
               </div>
-              <button className="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 w-full">
+              <button className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 w-full text-lg">
                 Shop Now
               </button>
             </Card>

@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              Bringing you the finest traditional millet-based sweets and snacks, 
+              Bringing you the finest traditional millet-based sweets and snacks,
               crafted with love and authentic recipes passed down through generations.
             </p>
             <div className="flex space-x-4">
@@ -35,8 +35,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {['Home', 'Millets Food', 'About Us', 'Why EatKrishna?', 'Contact'].map((link) => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-').replace('?', '')}`} 
-                     className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-').replace('?', '')}`}
+                    className="text-gray-300 hover:text-white transition-colors duration-200">
                     {link}
                   </a>
                 </li>
@@ -50,16 +50,19 @@ const Footer: React.FC = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-orange-400" />
-                <span className="text-gray-300 text-sm">+91 98765 43210</span>
+                <span className="text-gray-300 text-sm">+91 9121 838383</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-orange-400" />
-                <span className="text-gray-300 text-sm">orders@EatKrishna.com</span>
+                <span className="text-gray-300 text-sm">eatkrishna@gmail.com</span>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-orange-400 mt-1" />
                 <span className="text-gray-300 text-sm">
-                  EatKrishna Village<br />
+                  KPHB 7 th Phase<br />
+                  Near Ankura Hospital<br />
+                  Kukatpalli-Hyderbad<br />
+                  India-500082<br />
                   Andhra Pradesh<br />
                   India - 517001
                 </span>

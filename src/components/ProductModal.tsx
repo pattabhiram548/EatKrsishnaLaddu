@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { X, Minus, Plus, ShoppingCart } from 'lucide-react';
+import { useCart } from './CartContext';
+import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 interface Product {
   id: number;
@@ -20,29 +23,39 @@ interface ProductModalProps {
 const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
-    // Add to cart logic here
-    console.log('Added to cart:', {
-      product: product.name,
-      variant: product.variants[selectedVariant],
-      quantity
+    addToCart({
+      id: product.id,
+      name: product.name,
+      variant: product.variants[selectedVariant].name,
+      price: product.variants[selectedVariant].price,
+      quantity,
+      image: product.image,
     });
+    toast.success('Added to cart!');
     onClose();
   };
 
   const handleBuyNow = () => {
-    // Buy now logic here
-    console.log('Buy now:', {
-      product: product.name,
-      variant: product.variants[selectedVariant],
-      quantity
+    addToCart({
+      id: product.id,
+      name: product.name,
+      variant: product.variants[selectedVariant].name,
+      price: product.variants[selectedVariant].price,
+      quantity,
+      image: product.image,
     });
+    toast.success('Proceeding to payment...');
     onClose();
+    navigate('/payment');
   };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <Toaster position="top-right" />
       <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
           <h2 className="text-xl font-bold text-gray-900">EatKrishna</h2>
